@@ -294,25 +294,25 @@ Organization-approved instruction files may be committed (e.g. `.github/copilot-
 
 ## Long-Lived Branches
 
-The organization uses a release-branch-first workflow. `main` is the source of truth for production code; `release` is the staging and integration branch used for production-like validation and additional QA. Other branches should normally be short-lived.
+The organization uses a develop-branch-first workflow. `main` is the source of truth for production code; `develop` is the staging and integration branch used for production-like validation and additional QA. Other branches should normally be short-lived.
 
 ## Branch Rules
 
-- **`[POLICY]`** Do not push directly to `main`, force-push to `main`, or delete `main`. Create ordinary working branches from the latest `release` branch.
+- **`[POLICY]`** Do not push directly to `main`, force-push to `main`, or delete `main`. Create ordinary working branches from the latest `develop` branch.
 - **`[GUIDELINE]`** Do not start a new short-lived branch from another short-lived branch unless the dependency is intentional and documented.
-- **`[GUIDELINE]`** Merge short-lived branches promptly (preferably daily); if a working branch cannot be merged promptly, rebase it onto the latest `release` branch regularly to keep branch lifetime short and reduce conflicts.
-- **`[GUIDELINE]`** If work was mistakenly based on `main`, create the correct branch from `release` and cherry-pick the relevant commits.
+- **`[GUIDELINE]`** Merge short-lived branches promptly (preferably daily); if a working branch cannot be merged promptly, rebase it onto the latest `develop` branch regularly to keep branch lifetime short and reduce conflicts.
+- **`[GUIDELINE]`** If work was mistakenly based on `main`, create the correct branch from `develop` and cherry-pick the relevant commits.
 
 ---
 
 # 8. Rebase Instructions
 
-When asked to update a working branch with the latest `release` branch, use:
+When asked to update a working branch with the latest `develop` branch, use:
 
 ```bash
 git fetch origin
 git switch <working-branch>
-git rebase origin/release
+git rebase origin/develop
 ```
 
 When conflicts occur:
@@ -325,7 +325,7 @@ git rebase --continue
 
 To cancel the rebase, use `git rebase --abort`. After rebasing a branch that was already pushed, use `git push --force-with-lease`.
 
-- **`[POLICY]`** Do not rebase `main`, and do not rebase `release` merely to update an individual working branch.
+- **`[POLICY]`** Do not rebase `main`, and do not rebase `develop` merely to update an individual working branch.
 - **`[GUIDELINE]`** Rebase only branches you own or branches whose collaborators have coordinated the history rewrite. Use `--force-with-lease`, not plain `--force`, for a previously pushed working branch.
 
 ---
@@ -527,7 +527,7 @@ Deployment and release rules apply only to repositories that deploy or publish a
 ## Branches and Environments
 
 - `main` is the production source of truth.
-- `release` is used for staging and production-like validation under the release-branch-first workflow.
+- `develop` is used for staging and production-like validation under the develop-branch-first workflow.
 
 ## Release Tags
 
