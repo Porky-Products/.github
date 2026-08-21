@@ -1,4 +1,10 @@
-# Issue Template
+---
+name: Standard issue
+about: Create a work item with required problem, type, and priority details
+title: ""
+labels: []
+assignees: []
+---
 
 ## Title
 
