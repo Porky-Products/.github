@@ -1,3 +1,5 @@
+> Need deploy sync template? Open PR URL with `?template=deploy-main-sync.md` to use `.github/PULL_REQUEST_TEMPLATE/deploy-main-sync.md`.
+
 ## Summary
 
 - 
