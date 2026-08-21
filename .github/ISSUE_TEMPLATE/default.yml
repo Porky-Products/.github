@@ -1,0 +1,92 @@
+name: Standard issue
+description: Create a work item with required problem, type, and priority details
+title: ""
+labels: []
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for non-trivial work. Include clear problem context and acceptance criteria.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Requested Outcome
+      description: Describe what is broken or what outcome is needed.
+      placeholder: What problem are we solving?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this matters
+      description: Explain impact, urgency, and business or user value.
+      placeholder: Why is this important now?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and Constraints
+      description: Include relevant background, dependencies, assumptions, and constraints.
+      placeholder: Dependencies, assumptions, limitations, links
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Expected Behavior / Acceptance Criteria
+      description: Add measurable criteria. Checklist format recommended.
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Issue Type (Primary)
+      options:
+        - bug
+        - feature
+        - chore
+        - tech-debt
+        - spike
+        - docs
+        - security
+        - ci
+        - infra
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - p0 - Critical issue blocking production, security, or major operations
+        - p1 - High priority, should be handled soon
+        - p2 - Normal planned work
+        - p3 - Low priority or backlog
+    validations:
+      required: true
+  - type: input
+    id: area_scope
+    attributes:
+      label: Area / Scope (Optional)
+      description: Add area labels when useful for routing and reporting.
+      placeholder: example - auth, checkout, infrastructure
+    validations:
+      required: false
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk
+      description: Select risk level when work affects security, data, deployment, infrastructure, internal systems, or production behavior.
+      options:
+        - N/A - no elevated risk
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
