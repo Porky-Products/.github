@@ -620,6 +620,16 @@ Quick reference — apply the detailed rules from the referenced section, not ju
 | Generate CI/CD (§13) | Inspect the repo first; use its actual runtime, package manager, lockfile, commands, branches, and runner labels — never invented ones. |
 | Prepare a release (§14) | Never invent a version or build number; follow the repo's established versioning mechanism (CI-generated, repo-controlled, tag-controlled, or platform-managed). |
 
+Handling large text blobs, drafts, and the canvas tool:
+
+- **`[POLICY]`**: When performing command-line operations with large multiline text
+  blobs, always prefer temp files created in the persistent artifacts directory
+  over heredocs.
+- **`[CONDITIONAL]`**: When canvas tools are available (GUI harness), create draft
+  documents in the artifacts directory and present them to the user via
+  `open_canvas`. This lets the user interactively edit the document before
+  submission — no re-read or re-output required.
+
 ---
 
 # Final Rule
