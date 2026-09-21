@@ -2,7 +2,7 @@
 
 Apply to issues, branches, commits, PRs, reviews, merges, CI/CD, releases, hotfixes, ADRs, spikes, and exceptions. Integrity rules apply to every task.
 
-`[POLICY]` = required unless an approved exception applies. `[GUIDELINE]` = default, adaptable to repository/task needs. `[CONDITIONAL]` = applies under the stated condition. Unmarked instructions retain their stated scope. Repository rules may be stricter; never silently override organization policy. Identify conflicting/unclear instructions and request clarification.
+`[POLICY]` = required unless an approved exception applies. `[GUIDELINE]` = default, adaptable to repository/task needs. Unmarked instructions retain their stated scope. Repository rules may be stricter; never silently override organization policy. Identify conflicting/unclear instructions and request clarification.
 
 ## Integrity
 
@@ -207,5 +207,6 @@ Exceptions may fit emergencies, immediate rollback, tool outages, inapplicable f
 - **Follow-up issue:**
 ```
 
-- [POLICY] For command-line operations with large multiline text, prefer temporary files in the persistent artifacts directory over heredocs.
-- [CONDITIONAL] When GUI canvas tools are available, create drafts in the artifacts directory and present via `open_canvas` for user editing before submission; no re-read/re-output required.
+- [POLICY] For command-line operations with large multiline text, write to temporary files in the persistent artifacts directory and avoid heredoc usage.
+- [POLICY] When you need to create drafts or other large multiline text messages, write to temporary files in the persistent artifacts directory. Use the same files in subsequent tool calls whenever possible to avoid manually reproducing tokens.
+- [POLICY] When GUI canvas tools are available, always use the `open_canvas` for presenting draft files to the user to allow them to edit them directly.
