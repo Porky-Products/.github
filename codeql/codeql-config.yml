@@ -1,0 +1,8 @@
+# CodeQL code scanning only; GitHub Code Quality does not support these filters.
+# Apply through the github-codeql-config-file repository property after publishing.
+# Private cross-repository access requires a Git Source private registry for
+# default setup, or external-repository-token for advanced setup.
+name: Porky Products CodeQL exclusions
+query-filters:
+  - exclude:
+      id: cs/log-forging
